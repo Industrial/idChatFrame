@@ -43,7 +43,10 @@ end
 
 function addon:OnInitialize()
   self.db = LibStub('AceDB-3.0'):New('idChatFrameDB')
-  self.history = self.db.profile.history
+
+  self.history = self.db.profile.history or {}
+  self.db.profile.history = history
+
   self.frame = CreateFrame('ScrollingMessageFrame', 'idChatFrame', UIParent)
   self.frame.background_texture = self.frame:CreateTexture(nil, 'BACKGROUND')
 end
