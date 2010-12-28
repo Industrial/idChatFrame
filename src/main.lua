@@ -5,36 +5,7 @@ local BL, BC, BR = 'BOTTOMLEFT', 'BOTTOM', 'BOTTOMRIGHT'
 
 local addon = LibStub('AceAddon-3.0'):NewAddon('idChatFrame', 'AceEvent-3.0')
 
-function addon:scrollChat()
-end
-
-function addon:addMessage()
-end
-
-function addon:OnInitialize()
-  self.db = LibStub('AceDB-3.0'):New('idChatFrameDB')
-end
-
-function addon:OnEnable()
-end
-
-function addon:OnDisable()
-end
-
--- vars
-local chat_frame
-local chat_history_limit = 500
-local chat_history = _G.idChatHistory or {}
-_G.idChatHistory = chat_history
-
--- functions
-local scroll_chat
-local add_message
-local display_message
-local redisplay_all_messages
-local on_event
-
-function scroll_chat(frame, delta)
+function addon.scrollChat(frame, delta)
    if delta > 0 then
       if IsShiftKeyDown() then
          frame:ScrollToTop()
@@ -50,22 +21,35 @@ function scroll_chat(frame, delta)
    end
 end
 
-function add_message(message)
+function addon:addMessage(message)
    message = ('%s %s'):format(date('%X'), message)
-   table.insert(chat_history, message)
-   display_message(message)
+
+   table.insert(self.history, message)
+
+   self:displayMessage(message)
 end
 
-function display_message(message)
-   chat_frame:AddMessage(message)
+function addon:displayMessage(message)
+  chat_frame:AddMessage(message)
 end
 
-function redisplay_all_messages()
-   chat_frame:Clear()
-   for i,v in ipairs(chat_history) do
-      display_message(v)
-   end
+function addon:redisplayAllMessages()
+  for i,v in ipairs(self.history) do
+    self:displayMessage(v)
+  end
 end
+
+function addon:OnInitialize()
+  self.db = LibStub('AceDB-3.0'):New('idChatFrameDB')
+  self.history = self.db.profile.history
+end
+
+function addon:OnEnable()
+end
+
+function addon:OnDisable()
+end
+
 
 function on_event(frame, event, message, sender, language, channel_id, target, flags, unknown, channel_number, channel_name, unknown1, counter)
    local output = message
