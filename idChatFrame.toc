@@ -1,0 +1,13 @@
+## Interface: 40000
+## Title: idChat
+## Notes: My very own chatframe.
+## Author: Industrial
+## SavedVariables: idChatFrameDB
+
+lib/LibStub/LibStub.lua
+lib/AceAddon-3.0/AceAddon-3.0.xml
+lib/AceDB-3.0/AceDB-3.0.xml
+lib/AceEvent-3.0/AceEvent-3.0.xml
+
+src/main.lua
+
