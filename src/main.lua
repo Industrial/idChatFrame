@@ -54,6 +54,9 @@ function addon:OnInitialize()
 
   self.frame = CreateFrame('ScrollingMessageFrame', 'idChatFrame', UIParent)
   self.frame.background_texture = self.frame:CreateTexture(nil, 'BACKGROUND')
+
+  self:RegisterEvent('CHAT_MSG_ACHIEVEMENT', 'HandleMessage')
+  self:RegisterEvent('CHAT_MSG_SAY', 'HandleMessage')
 end
 
 function addon:OnEnable()
@@ -71,9 +74,6 @@ function addon:OnEnable()
 
   self.frame:EnableMouseWheel(true)
   self.frame:SetScript('OnMouseWheel', self.scrollChat)
-
-  self:RegisterEvent('CHAT_MSG_ACHIEVEMENT', 'HandleMessage')
-  self:RegisterEvent('CHAT_MSG_SAY', 'HandleMessage')
 
   self:redisplayAllMessages()
 end
