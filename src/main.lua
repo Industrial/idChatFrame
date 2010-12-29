@@ -76,8 +76,7 @@ end
 function addon:OnDisable()
 end
 
-function addon:HandleMessage(frame, event, message, sender, language, channel_id, target, flags, unknown, channel_number, channel_name, unknown1, counter)
-   local output = message
-   add_message(output)
+function addon:HandleMessage(event, message, sender, language, channel_id, target, flags, unknown, channel_number, channel_name, unknown1, counter)
+  self:addMessage(message)
 end
 
