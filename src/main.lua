@@ -28,6 +28,10 @@ function addon:addMessage(message)
 
    table.insert(self.history, message)
 
+   if #self.history >= MAX_LINES then
+     table.remove(self.history, 1)
+   end
+
    self:displayMessage(message)
 end
 
