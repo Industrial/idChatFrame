@@ -32,7 +32,7 @@ function addon:addMessage(message)
 end
 
 function addon:displayMessage(message)
-  chat_frame:AddMessage(message)
+  self.frame:AddMessage(message)
 end
 
 function addon:redisplayAllMessages()
