@@ -52,7 +52,7 @@ function addon:OnInitialize()
 end
 
 function addon:OnEnable()
-  self.frame.background_texture:SetAllPoints(chat_frame)
+  self.frame.background_texture:SetAllPoints(self.frame)
   self.frame.background_texture:SetTexture(0, 0, 0, 0.5)
 
   self.frame:SetPoint(TL, UIParent, TL, 5, -5)
