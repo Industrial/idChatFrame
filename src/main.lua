@@ -13,19 +13,19 @@ local MAX_LINES = 500
 local addon = LibStub('AceAddon-3.0'):NewAddon('idChatFrame', 'AceEvent-3.0')
 
 function addon.scrollChat(frame, delta)
-   if delta > 0 then
-      if IsShiftKeyDown() then
-         frame:ScrollToTop()
-      else
-         frame:ScrollUp()
-      end
-   elseif delta < 0 then
-      if IsShiftKeyDown() then
-         frame:ScrollToBottom()
-      else
-         frame:ScrollDown()
-      end
-   end
+  if delta > 0 then
+    if IsShiftKeyDown() then
+      frame:ScrollToTop()
+    else
+      frame:ScrollUp()
+    end
+  elseif delta < 0 then
+    if IsShiftKeyDown() then
+      frame:ScrollToBottom()
+    else
+      frame:ScrollDown()
+    end
+  end
 end
 
 function addon:addMessage(message)
