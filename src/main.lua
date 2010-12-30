@@ -29,13 +29,13 @@ function addon.scrollChat(frame, delta)
 end
 
 function addon:addMessage(message)
-   table.insert(self.history, message)
+  table.insert(self.history, message)
 
-   if #self.history >= MAX_LINES then
-     table.remove(self.history, 1)
-   end
+  if #self.history >= MAX_LINES then
+    table.remove(self.history, 1)
+  end
 
-   self:displayMessage(message)
+  self:displayMessage(message)
 end
 
 function addon:displayMessage(message)
