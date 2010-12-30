@@ -294,7 +294,7 @@ function addon:OnEnable()
   self.frame:SetWidth(400)
   self.frame:SetHeight(200)
 
-  self.frame:SetFont('Fonts\\ARIALN.TTF', 12)
+  self.frame:SetFont('Fonts\\ARIALN.TTF', 14)
   self.frame:SetJustifyH('LEFT')
   self.frame:SetFading(false)
   self.frame:SetMaxLines(MAX_LINES)
