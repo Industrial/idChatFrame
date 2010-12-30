@@ -308,21 +308,6 @@ end
 function addon:OnDisable()
 end
 
-function addon:HandleMessage(event, message, sender, language, channel_id, target, flags, unknown, channel_number, channel_name, unknown1, counter)
-  print(event, message, sender, language, channel_id, target, flags, unknown, channel_number, channel_name, unknown1, counter)
-
-  local output = ''
-
-  if event == 'CHAT_MSG_ACHIEVEMENT' then
-    output = message
-  else
-  end
-
-  output = self:prependTimestamp(output)
-
-  self:addMessage(output)
-end
-
 function addon:handleInformationalMessage(event, message, sender, language, channel_id, target, flags, unknown, channel_number, channel_name, unknown1, counter)
   self:addMessage(self:prependTimestamp(message))
 end
