@@ -1,3 +1,8 @@
+-- TODO: explore this idea later:   foxlit: think that's the right way to go?
+-- say I have 20 FontStrings and I make them show 20 lines in a table at a
+-- time, and just shove the content up and down.. could make every line
+-- clickable etc
+
 local _G = _G
 local TL, TC, TR = 'TOPLEFT', 'TOP', 'TOPRIGHT'
 local ML, MC, MR = 'LEFT', 'CENTER', 'RIGHT'
